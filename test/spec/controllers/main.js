@@ -5,19 +5,19 @@ describe('Controller: MainCtrl', function () {
   // load the controller's module
   beforeEach(module('progressbarApp'));
 
-  var MainCtrl,
+  var $controller,
     scope;
 
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function (_$controller_, $rootScope) {
     scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
-      $scope: scope
-      // place here mocked dependencies
-    });
+    $controller = _$controller_;
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(MainCtrl.awesomeThings.length).toBe(3);
+  it('limit should be 100', function () {
+    var $scope = {}; // $controller takes an object containing a reference to the $scope
+    var controller = $controller('MainCtrl', { $scope: $scope }); // the assertion checks the expected result
+    //expect($scope.title).toEqual('Hello Pluralsight');
+    expect($scope.limit).toEqual(100);
   });
 });

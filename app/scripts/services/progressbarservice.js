@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @ngdoc service
  * @name progressbarApp.progressBarService
@@ -10,8 +8,6 @@
 angular.module('progressbarApp')
   .service('progressBarService', function ($http, $q, ENDPOINT) {
     // AngularJS will instantiate a singleton by calling "new" on this function
-
-     //var ENDPOINT = 'http://pb-api.herokuapp.com/bars';
 
      this.progressBarData = this.progressBars ='';
 
@@ -26,7 +22,7 @@ angular.module('progressbarApp')
      }
 
      function setProgressBarData(progressBarData) {
-       this.progressBarData = progressBarData;
+        this.progressBarData = progressBarData;
      }
 
      function createProgressBars() {
