@@ -1,0 +1,18 @@
+<div class="jumbotron">
+  <div class="row">
+    <div class="col-12" ng-repeat="progressBar in progressBars track by $index">
+      <uib-progressbar value="progressBar.value"  class="progress-striped active" type="{{progressBar.isLimitReached?'warning':'success'}}">{{progressBar.value}}%</uib-progressbar>
+    </div>
+  </div>
+    <div class="row">
+      <div class="form-group col-md-4 col-xs-12 col-sm-12 selectboxContainer">
+        <label for="sel1"></label>
+        <select class="col-lg-6 col-md-6 col-sm-12 form-control" id="sel1" ng-model="selectedProgressBar">
+          <option ng-repeat="progressBar in progressBars track by $index" ng-value="progressBar">#{{progressBar.id}}</option>
+        </select>
+      </div>
+      <div class="col-md-2 col-xs-12 col-sm-12" ng-repeat="button in buttons track by $index">
+        <button class="btn btn-info col-xs-12 col-sm-12" type="button" ng-click="updateProgressBar(button, selectedProgressBar)">{{button}}</button>
+      </div>
+    </div>
+</div>
